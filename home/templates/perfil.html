@@ -51,18 +51,21 @@
 
   
     <div class="profile" id="profile">
+        {% if profile_image %}
+        <img src="{{ profile_image }}" alt="Imagem do perfil" id="profileImage"> # deixar a imagem salvar
+        {% else %}
         <img src="https://via.placeholder.com/150" alt="Imagem do perfil" id="profileImage"> # se n tiver imagem, ele vai mostrar um aviso
-        <img src="{{ image_url }}" alt="Imagem do perfil" id="profileImage"> # deixar a imagem salvar
+        {% endif %}
     </div>
     
 
     
-    <form  class="buttons" method="POST" action="salvar_imagem" enctype="multipart/form-data">
+    <form  class="buttons" method="POST" action="{% url "salvar_imagem" %}" enctype="multipart/form-data">
+        {% csrf_token %}
         <input type="file" id="imageInput" name="profile_image" style="display: none;" accept="image/*">
         <button type="button" class="upload-btn" onclick="document.getElementById('imageInput').click();">Trocar Imagem</button>
         <button type="submit" class="upload-btn">Salvar Imagem</button>
-        <button class="delete-btn" onclick="deleteImage()">Excluir Imagem</button>
-
+        <button type="button" class="delete-btn" onclick="deleteImage()">Excluir Imagem</button>
     </form>
     
 
