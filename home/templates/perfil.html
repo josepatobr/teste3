@@ -31,19 +31,45 @@
         .buttons button {
             margin: 5px;
             padding: 10px 15px;
-            font-size: 14px;
+            font-size: 16px;
             cursor: pointer;
-            border: none;
-            border-radius: 5px;
+            border: 1px solid;
+            border-radius: 20px;
+            
         }
         .upload-btn {
-            background-color: #4CAF50;
+            background-color:transparent;
             color: rgb(0, 0, 0);
+           
         }
+
+        .upload-btn:hover{
+            color: rgb(52, 216, 61);
+
+          }
         .delete-btn {
-            background-color: #f44336;
-            color: white;
+            background-color: transparent;
+            color: black;
         }
+  
+        .delete-btn:hover{
+            color: rgb(255, 0, 0);
+        }
+
+        .sair{
+            color: rgb(31, 67, 109);
+            font-size: 20px;
+            border: 1px solid black;
+            padding: 03px 10px;
+            border-radius: 50px;
+
+        }
+
+        .sair:hover{
+            color: rgb(0, 4, 255);
+        }
+
+
     </style>
 </head>
 <body>
@@ -52,9 +78,9 @@
   
     <div class="profile" id="profile">
         {% if profile_image %}
-        <img src="{{ profile_image }}" alt="Imagem do perfil" id="profileImage"> # deixar a imagem salvar
+        <img src="{{ profile_image }}" alt="Imagem do perfil" id="profileImage"> 
         {% else %}
-        <img src="https://via.placeholder.com/150" alt="Imagem do perfil" id="profileImage"> # se n tiver imagem, ele vai mostrar um aviso
+        <img src="https://via.placeholder.com/150" alt="Imagem do perfil" id="profileImage">
         {% endif %}
     </div>
     
@@ -91,6 +117,6 @@
         }
     </script>
 
-        <a class="nav-link" href=" home "> voltar </a>
+        <a class="sair" href=" http://127.0.0.1:8000/ "> voltar </a>
 </body>
 </html>
