@@ -1,0 +1,17 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 20px;
+  background-color: rgb(255, 255, 255);
+}
+
+.navbar-brand {
+  font-size: 40px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.nav-link {
+  color: rgb(43, 39, 39);
+  font-size: 20px;
+  font-family: system-ui;
+}

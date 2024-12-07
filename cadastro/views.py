@@ -36,12 +36,13 @@ def cadastro(request):
             return redirect("cadastro")
 
         try:
-            user = Person.objects.create_user(username=username, email=email, password=senha)
+            user = Person.objects.create_user(
+                username=username, email=email, password=senha
+            )
             django_login(request, user)
             messages.success(request, "Usuário criado com sucesso")
             return redirect("cadastro")
-        except Exception as e:
-            print(e)
+        except Exception:
             messages.error(request, "erro ao criar a conta")
             return redirect("cadastro")
     return render(request, "cadastro.html")
@@ -55,15 +56,15 @@ def login(request):
 
     username = request.POST.get("username")
     senha = request.POST.get("senha")
-    
+
     if not username or not senha:
         messages.error(request, "por favor, preencha todos os campos")
         return redirect("cadastro")
-    
+
     user = authenticate(request, username=username, password=senha)
     if user is not None:
         django_login(request, user)
         return redirect("home")
-    
+
     messages.error(request, "Usuário ou senha inválidos")
     return redirect("cadastro")
