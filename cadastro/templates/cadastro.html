@@ -23,10 +23,21 @@
           <a href="#" class="social"><i class="fab fa-twitter"></i></a>
           <a href="#" class="social"><i class="fab fa-google"></i></a>
         </div>
-        <input type="text" name="username" class="form-control mb-3" placeholder="Digite seu username" />
-        <input type="email" name="email" class="form-control mb-3" placeholder="Digite seu email" />
-        <input type="password" name="password" class="form-control mb-3" placeholder="Digite uma senha" />
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+        <div class="input-icon">
+          <i class="fas fa-user"></i>
+          <input type="text" name="username" class="form-control mb-3" placeholder="Digite seu username" />
+        </div>
+        <div class="input-icon">
+          <i class="fas fa-envelope"></i>
+          <input type="email" name="email" class="form-control mb-3" placeholder="Digite seu email" />
+        </div>
+        <div class="input-icon">
+          <i class="fas fa-lock"></i>
+          <input type="password" name="password" class="form-control mb-3" placeholder="Digite uma senha" />
+        </div>
+        
+        <button type="submit" class="btn-cadastro"> Cadastrar </button>
         <div class="toggle-link" onclick="toggleForm()">Já tem uma conta? Faça login aqui.</div>
       </form>
     </div>
@@ -37,18 +48,27 @@
           <div class="alert {{ message.tags }}">{{ message }}</div>
         {% endfor %}
       {% endif %}
-      <form method="POST" action="{% url 'login' %}">
-        {% csrf_token %}
+      <form method="POST" action="{% url 'login' %}">{% csrf_token %}
         <h1 class="logo">Já tenho uma conta</h1>
+
         <div class="social-container">
           <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
           <a href="#" class="social"><i class="fab fa-twitter"></i></a>
           <a href="#" class="social"><i class="fab fa-google"></i></a>
         </div>
-        <span>Use sua conta</span>
-        <input type="text" name="username" class="form-control mb-3" placeholder="Username" />
-        <input type="password" name="senha" class="form-control mb-3" placeholder="Senha" />
-        <button type="submit" class="btn btn-primary">Entrar</button>
+        <span class="logo">Use sua conta</span>
+
+        <div class="input-icon">
+          <i class="fas fa-user"></i>
+          <input type="text" name="username" class="form-control mb-3" placeholder="Username" />
+        </div>
+
+        <div class="input-icon">
+          <i class="fas fa-lock"></i>
+          <input type="password" name="senha" class="form-control mb-3" placeholder="Senha" />
+        </div>
+
+        <button type="submit" class="btn-cadastro"> Entrar </button>
         <div class="toggle-link" onclick="toggleForm()">Não tem uma conta? Cadastre-se aqui.</div>
       </form>
     </div>
