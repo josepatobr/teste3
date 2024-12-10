@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "cadastro",
     "home",
     "django_cleanup.apps.CleanupConfig",
+    "vender",
 ]
 
 MIDDLEWARE = [

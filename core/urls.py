@@ -7,6 +7,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("auth/", include("cadastro.urls")),
     path("", include("home.urls")),
+
     # Media files
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
 ]

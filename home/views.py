@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest
+from vender.models import Vendedores
 
 
 @login_required(login_url="cadastro")
@@ -22,3 +23,9 @@ def salvar_imagem(request: HttpRequest):
         request.user.profile_image = image
         request.user.save()
     return redirect("perfil")
+
+
+def mostrar_venda(request):
+    produtos = Vendedores.objects.all()
+    return render(request, "home.html", {"produtos": produtos})
+

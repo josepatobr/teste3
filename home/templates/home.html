@@ -7,4 +7,15 @@
   <link rel="stylesheet" href="{% static "css/home.css" %}">
 {% endblock head %}
 
-{% block body %}{% endblock body %}
+{% block body %}
+
+<body><h1>Lista de Produtos</h1>
+  <ul>
+      {% for produtos in produtos %}
+          <li>{{ produtos.produtos }}  {{ produtos.valor }}</li>
+      {% endfor %}
+  </ul>
+</body>
+
+
+{% endblock body %}
