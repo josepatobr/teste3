@@ -5,21 +5,35 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Vendedores',
+            name="Vendedores",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nome_vendedor', models.CharField(max_length=200)),
-                ('Produto', models.CharField(max_length=50)),
-                ('imagem_produto', models.ImageField(upload_to='media/vendedores')),
-                ('valor', models.DecimalField(decimal_places=1, default=0.0, max_digits=10, validators=[django.core.validators.MinValueValidator(0.01)])),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nome_vendedor", models.CharField(max_length=200)),
+                ("Produto", models.CharField(max_length=50)),
+                ("imagem_produto", models.ImageField(upload_to="media/vendedores")),
+                (
+                    "valor",
+                    models.DecimalField(
+                        decimal_places=1,
+                        default=0.0,
+                        max_digits=10,
+                        validators=[django.core.validators.MinValueValidator(0.01)],
+                    ),
+                ),
             ],
         ),
     ]

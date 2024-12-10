@@ -1,0 +1,68 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-inline: 40px;
+}
+
+.lista_produtos {
+  display: flex;
+  padding: 0;
+  margin-top: 12px;
+  gap: 10px;
+  list-style: none;
+}
+
+.produto_card {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  max-width: 260px;
+  color: black;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.produto_card:hover, .produto_card:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.produto_image {
+  width: 240px;
+  height: 220px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+}
+.produto_image div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+.produto_image img {
+  border-radius: 12px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.produto_info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+  gap: 6px;
+}
+.produto_nome {
+  margin: 0;
+  font-size: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.produto_valor {
+  margin: 0;
+}

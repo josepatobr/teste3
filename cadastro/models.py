@@ -9,8 +9,11 @@ class Person(AbstractUser):
         _("profile image"), upload_to="profile_images/", blank=True, null=True
     )
 
+    def get_full_name(self):
+        return super().get_full_name() or self.username
+
     def __str__(self):
-        return self.get_full_name() or self.username
+        return self.get_full_name()
 
     class Meta:
         verbose_name = _("person")

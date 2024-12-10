@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ produto.nome }}{% endblock title %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static "css/produto.css" %}">
+{% endblock head %}
+
+{% block body %}
+  <main class="main">
+    <div class="produto_image">
+      {% if produto.imagem %}
+        <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" />
+      {% else %}
+        <div aria-label="{{ produto.nome }}">Sem imagem</div>
+      {% endif %}
+    </div>
+    <div class="produto_content">
+      <div class="produto_info">
+        <h1 class="produto_nome">{{ produto.nome }}</h1>
+        <div class="separador"></div>
+        {% if produto.descricao %}
+          <p class="produto_descricao">{{ produto.descricao }}</p>
+          <div class="separador"></div>
+        {% endif %}
+        <p class="produto_valor">{{ produto.valor_formatado }}</p>
+      </div>
+      <button type="button" class="comprar_produto">Comprar</button>
+    </div>
+  </main>
+{% endblock body %}

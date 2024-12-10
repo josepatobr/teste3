@@ -8,14 +8,26 @@
 {% endblock head %}
 
 {% block body %}
-
-<body><h1>Lista de Produtos</h1>
-  <ul>
-      {% for produtos in produtos %}
-          <li>{{ produtos.produtos }}  {{ produtos.valor }}</li>
+  <main class="main">
+    <h1>Lista de Produtos</h1>
+    <ul class="lista_produtos">
+      {% for produto in produtos %}
+        <li>
+          <a class="produto_card" href="{% url "produto" produto.slug %}">
+            <div class="produto_image">
+              {% if produto.imagem %}
+                <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" />
+              {% else %}
+                <div aria-label="{{ produto.nome }}">Sem imagem</div>
+              {% endif %}
+            </div>
+            <div class="produto_info">
+              <h2 class="produto_nome">{{ produto.nome }}</h2>
+              <p class="produto_valor">{{ produto.valor_formatado }}</p>
+            </div>
+          </a>
+        </li>
       {% endfor %}
-  </ul>
-</body>
-
-
+    </ul>
+  </main>
 {% endblock body %}

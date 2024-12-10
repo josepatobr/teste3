@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from .models import Vendedores
+from vender.models import Produto
+from django.shortcuts import get_object_or_404
 
-def mostrar_vendas(request):
-    produtos = Vendedores.objects.all()
-    return render(request, 'mostrar_vendas.html', {'produtos': produtos})
+
+def produto(request, slug):
+    produto = get_object_or_404(Produto, slug=slug)
+    return render(request, "produto.html", {"produto": produto})
