@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import Person
 from django.contrib import messages
-from django.contrib.auth import authenticate, login as django_login
+from django.contrib.auth import authenticate, login as django_login, logout
 
 
 def cadastro(request):
@@ -55,16 +55,21 @@ def login(request):
         return redirect("cadastro")
 
     username = request.POST.get("username")
-    senha = request.POST.get("senha")
+    password = request.POST.get("password")
 
-    if not username or not senha:
+    if not username or not password:
         messages.error(request, "por favor, preencha todos os campos")
         return redirect("cadastro")
 
-    user = authenticate(request, username=username, password=senha)
+    user = authenticate(request, username=username, password=password)
     if user is not None:
         django_login(request, user)
         return redirect("home")
 
     messages.error(request, "Usuário ou senha inválidos")
+    return redirect("cadastro")
+
+
+def sair(request):
+    logout(request)
     return redirect("cadastro")

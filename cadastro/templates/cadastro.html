@@ -8,71 +8,73 @@
 {% endblock head %}
 
 {% block body %}
-  <div class="container" id="container">
-    <div class="form-container sign-up-container active" id="signUpForm">
-      {% if messages %}
-        {% for message in messages %}
-          <div class="alert {{ message.tags }}">{{ message }}</div>
-        {% endfor %}
-      {% endif %}
-      <form method="POST" action="{% url 'cadastro' %}">
-        {% csrf_token %}
-        <h1 class="logo"> Criar uma conta </h1>
-        <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social"><i class="fab fa-google"></i></a>
-        </div>
+  <div class="fundo"></div>
+  <main class="main">
+    <div class="container" id="container">
+      <div class="form-container sign-up-container active" id="signUpForm">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert {{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+        <form method="POST" action="{% url 'cadastro' %}">
+          {% csrf_token %}
+          <h1 class="logo"> Criar uma conta </h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social"><i class="fa-brands fa-google"></i></a>
+          </div>
+  
+          <label class="input-icon" for="username">
+            <i class="fa-solid fa-user"></i>
+            <input id="username" type="text" name="username" placeholder="Digite seu username" />
+          </label>
+          <label class="input-icon" for="email">
+            <i class="fa-solid fa-envelope"></i>
+            <input id="email" type="email" name="email" placeholder="Digite seu email" />
+          </label>
+          <label class="input-icon" for="password">
+            <i class="fa-solid fa-lock"></i>
+            <input id="password" type="password" name="password" placeholder="Digite uma senha" />
+          </label>
 
-        <div class="input-icon">
-          <i class="fas fa-user"></i>
-          <input type="text" name="username" class="form-control mb-3" placeholder="Digite seu username" />
-        </div>
-        <div class="input-icon">
-          <i class="fas fa-envelope"></i>
-          <input type="email" name="email" class="form-control mb-3" placeholder="Digite seu email" />
-        </div>
-        <div class="input-icon">
-          <i class="fas fa-lock"></i>
-          <input type="password" name="password" class="form-control mb-3" placeholder="Digite uma senha" />
-        </div>
-        
-        <button type="submit" class="btn-cadastro"> Cadastrar </button>
-        <div class="toggle-link" onclick="toggleForm()">Já tem uma conta? Faça login aqui.</div>
-      </form>
+          <button type="submit" class="btn-cadastro"> Cadastrar </button>
+          <div class="toggle-link" onclick="toggleForm()">Já tem uma conta? Faça login aqui.</div>
+        </form>
+      </div>
+  
+      <div class="form-container sign-in-container" id="signInForm">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert {{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+        <form method="POST" action="{% url 'login' %}">
+          {% csrf_token %}
+          <h1 class="logo">Já tenho uma conta</h1>
+  
+          <div class="social-container">
+            <a href="#" class="social"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social"><i class="fa-brands fa-google"></i></a>
+          </div>
+  
+          <label class="input-icon" for="username">
+            <i class="fa-solid fa-user"></i>
+            <input id="username" type="text" name="username" placeholder="Digite seu username" />
+          </label>
+          <label class="input-icon" for="password">
+            <i class="fa-solid fa-lock"></i>
+            <input id="password" type="password" name="password" placeholder="Digite uma senha" />
+          </label>
+  
+          <button type="submit" class="btn-cadastro"> Entrar </button>
+          <div class="toggle-link" onclick="toggleForm()">Não tem uma conta? Cadastre-se aqui.</div>
+        </form>
+      </div>
     </div>
-
-    <div class="form-container sign-in-container" id="signInForm">
-      {% if messages %}
-        {% for message in messages %}
-          <div class="alert {{ message.tags }}">{{ message }}</div>
-        {% endfor %}
-      {% endif %}
-      <form method="POST" action="{% url 'login' %}">{% csrf_token %}
-        <h1 class="logo">Já tenho uma conta</h1>
-
-        <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social"><i class="fab fa-google"></i></a>
-        </div>
-        <span class="logo">Use sua conta</span>
-
-        <div class="input-icon">
-          <i class="fas fa-user"></i>
-          <input type="text" name="username" class="form-control mb-3" placeholder="Username" />
-        </div>
-
-        <div class="input-icon">
-          <i class="fas fa-lock"></i>
-          <input type="password" name="senha" class="form-control mb-3" placeholder="Senha" />
-        </div>
-
-        <button type="submit" class="btn-cadastro"> Entrar </button>
-        <div class="toggle-link" onclick="toggleForm()">Não tem uma conta? Cadastre-se aqui.</div>
-      </form>
-    </div>
-  </div>
+  </main>
 {% endblock body %}
 
 {% block js %}

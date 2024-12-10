@@ -7,33 +7,4 @@
   <link rel="stylesheet" href="{% static "css/home.css" %}">
 {% endblock head %}
 
-{% block body %}
-  <nav class="navbar-fundo">
-    <a class="navbar-brand">Loja do José</a>
-    <li class="emoji"> 
-      <a class="far fa-user-circle" href="{% url "perfil" %}"></a>
-    </li>
-    
-    <button
-      type="button"
-      class="navbar-toggler"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          
-          <a class="far fa-user-circle" href="{% url "perfil" %}"></a>
-        </li>
- 
-      </ul>
-    </div>
-  </nav>
-{% endblock body %}
+{% block body %}{% endblock body %}
