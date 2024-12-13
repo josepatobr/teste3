@@ -2,9 +2,8 @@ from django.shortcuts import render, redirect
 from vender.models import Produto
 from django.shortcuts import get_object_or_404
 from django.conf import settings
-from django.http import *
 import stripe
-from django.views.decorators.csrf import csrf_exempt
+from django.urls import reverse
 
 
 def create_checkout_session(request, id):
@@ -16,7 +15,7 @@ def create_checkout_session(request, id):
                 {
                     "price_data": {
                         "currency": "BRL",
-                        "unit_amount": int(produto.preco * 100),
+                        "unit_amount": int(produto.valor * 100),
                         "product_data": {"name": produto.nome},
                     },
                     "quantity": 1,
@@ -32,17 +31,17 @@ def create_checkout_session(request, id):
         )
         return redirect(checkout_session.url, code=303)
     else:
-        return redirect("home")
-def cancel(request):
-    return render(request, "produto.html")
-
+        return redirect("produto", slug=produto.slug)
 
 
 def produto(request, slug):
     produto = get_object_or_404(Produto, slug=slug)
-    return render(request, "produto.html", {'produto': produto, 'STRIPE_PUBLIC_KEY': settings.STRIPE_PUBLIC_KEY})
+    return render(request, "produto.html", {"produto": produto})
 
 
+def success(request):
+    return render(request, "success.html")
 
 
-    
+def cancel(request):
+    return render(request, "cancel.html")
