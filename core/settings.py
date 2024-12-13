@@ -135,5 +135,5 @@ MESSAGE_TAGS = {
 
 from decouple import config
 
-STRIPE_PUBLIC_KEY = config('PK_STRIPE')
-STRIPE_SECRET_KEY = config('SK_STRIPE')
+STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')

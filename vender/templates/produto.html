@@ -26,7 +26,7 @@
         {% endif %}
         <p class="produto_valor">{{ produto.valor_formatado }}</p>
       </div>
-      <a href="{% url "pagar.html" %}" class="comprar">
+      <a href="{% url 'create-checkout-session' %}" class="comprar">
         <button type="button">Comprar</button>
       </a>
             

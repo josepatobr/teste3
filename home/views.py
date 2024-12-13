@@ -6,7 +6,7 @@ from vender.models import Produto
 
 @login_required(login_url="cadastro")
 def home(request):
-    produtos = Produto.objects.all(id = 1)
+    produtos = Produto.objects.all()
     return render(request, "home.html", {"produtos": produtos})
 
 

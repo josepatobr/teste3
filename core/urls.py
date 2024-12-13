@@ -8,7 +8,6 @@ urlpatterns = [
     path("auth/", include("cadastro.urls")),
     path("", include("home.urls")),
     path("", include("vender.urls")),
-    path("", include("pagar.urls")),
     # Media files
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
 ]
