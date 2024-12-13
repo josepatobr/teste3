@@ -5,8 +5,8 @@ from vender.models import Produto
 
 
 @login_required(login_url="cadastro")
-def home(request):
-    produtos = Produto.objects.all()
+def home(request, id):
+    produtos = Produto.objects.all(id=id)
     return render(request, "home.html", {"produtos": produtos})
 
 

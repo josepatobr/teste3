@@ -4,7 +4,7 @@
 {% block title %}{{ produto.nome }}{% endblock title %}
 
 {% block head %}
-  <link rel="stylesheet" href="{% static "css/produto.css" %}">
+  <link rel="stylesheet" href="{% static 'css/produto.css' %}">
 {% endblock head %}
 
 {% block body %}
@@ -26,7 +26,7 @@
         {% endif %}
         <p class="produto_valor">{{ produto.valor_formatado }}</p>
       </div>
-      <a href="{% url 'create-checkout-session' %}" class="comprar">
+      <a href="{% url 'create_checkout_session/<int:id>' %}" class="comprar">
         <button type="button">Comprar</button>
       </a>
             
