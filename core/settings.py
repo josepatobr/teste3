@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "home",
     "django_cleanup.apps.CleanupConfig",
     "vender",
+    
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,11 @@ MESSAGE_TAGS = {
     messages.WARNING: "alert-warning",
     messages.ERROR: "alert-danger",
 }
+
+
+#STRIPE
+
+from decouple import config
+
+STRIPE_PUBLIC_KEY = config('PK_STRIPE')
+STRIPE_SECRET_KEY = config('SK_STRIPE')

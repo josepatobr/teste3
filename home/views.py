@@ -6,7 +6,7 @@ from vender.models import Produto
 
 @login_required(login_url="cadastro")
 def home(request):
-    produtos = Produto.objects.all()
+    produtos = Produto.objects.all(id = 1)
     return render(request, "home.html", {"produtos": produtos})
 
 
@@ -24,3 +24,5 @@ def salvar_imagem(request: HttpRequest):
         request.user.profile_image = image
         request.user.save()
     return redirect("perfil")
+
+

@@ -55,6 +55,7 @@
   margin-top: 2px;
   font-size: 16px;
   font-weight: 500;
+  color: rgb(90, 87, 87);
 }
 .produto_valor {
   margin-top: 4px;
@@ -73,8 +74,8 @@
   padding-inline: 20px;
   padding-block: 8px;
   background-color: rgb(113, 128, 226);
-  transition: 0.2s;
+  transition: 1s;
 }
 .comprar_produto:hover {
-  background-color: rgb(44, 54, 121);
+  background-color: rgb(35, 173, 22);
 }

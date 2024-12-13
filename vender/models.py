@@ -24,7 +24,7 @@ class Produto(models.Model):
     )
     descricao = models.TextField(
         blank=True,
-        max_length=1000,
+        max_length=10000,
         help_text=_("Descrição detalhada do produto."),
     )
     imagem = models.ImageField(
