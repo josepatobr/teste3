@@ -1,0 +1,35 @@
+{% load static %}
+
+{% block title %} Cadastrar produtos {% endblock title %}
+
+
+{% for message in messages %}
+    <div class="alert">{{ message }}</div>
+{% endfor %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/cadastro_produto.css' %}" />
+{% endblock head %}
+
+
+{% block body %}
+    <form name="lista1" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+
+        <input type="text" name="nome" placeholder="Nome do produto" required>
+        <br>
+        <input type="number" step="0.01" name="valor" placeholder="Valor" required>
+        <br>
+        <textarea name="descricao" placeholder="Descrição" required></textarea>
+        <br>
+        <input type="file" name="imagem">
+        <br>
+        <button type="submit">Cadastrar Produto</button>
+    </form>
+
+    <h2>Produtos adicionados </h2>
+    <ul>
+        {% for produto in produtos %}
+            <li>{{ produto.nome }} - R$ {{ produto.valor }} {{ produto.imagem }}</li>
+        {% endfor %}
+    </ul>
+{% endblock body %}

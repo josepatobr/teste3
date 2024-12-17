@@ -13,7 +13,7 @@
     <ul class="lista_produtos">
       {% for produto in produtos %}
         <li>
-          <a class="produto_card" href="{% url "produto" produto.slug %}">
+          <a class="produto_card" href="{% url 'produto' produto.slug %}">
             <div class="produto_image">
               {% if produto.imagem %}
                 <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" />

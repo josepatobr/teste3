@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "home",
     "vender",
     "django_cleanup.apps.CleanupConfig",
+    "cadastro_produto",
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,5 @@ MESSAGE_TAGS = {
 # STRIPE
 STRIPE_PUBLIC_KEY = config("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY = config("STRIPE_SECRET_KEY")
+SECRET_KEY= config("SECRET_KEY")
+

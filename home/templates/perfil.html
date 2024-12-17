@@ -4,7 +4,7 @@
 {% block title %}Início{% endblock title %}
 
 {% block head %}
-  <link rel="stylesheet" href="{% static "css/perfil.css" %}">
+  <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
 {% endblock head %}
 
 {% block body %}
@@ -32,8 +32,12 @@
       <button type="submit" class="upload-btn">Salvar Imagem</button>
       <button type="button" class="delete-btn" onclick="deleteImage()">Excluir Imagem</button>
     </form>
-  
-    <a class="sair" href="{% url "home" %}">Voltar</a>
+
+
+    <a class="sair" href="{% url 'home' %}">Voltar</a>
+    <br>
+
+    <a class="me_levar" href="{% url 'cadastro_produto' %}"> adicionar produto </a>
   </main>
 {% endblock body %}
 
