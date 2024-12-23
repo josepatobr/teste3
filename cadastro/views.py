@@ -2,8 +2,7 @@ from django.shortcuts import redirect, render
 from .models import Person
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as django_login, logout
-import smtplib, ssl
-from .constants import sender_email, password_email, receive_email
+from .email import send_email
 
 
 def cadastro(request):
@@ -12,9 +11,7 @@ def cadastro(request):
     if request.method == "POST":
         username = request.POST.get("username")
         email = request.POST.get("email")
-        password_email = request.POST.get("password_email")
         senha = request.POST.get("password")
-
 
         if not username or not email or not senha:
             messages.error(request, "por favor, preencha todos os campos")
@@ -43,10 +40,16 @@ def cadastro(request):
             user = Person.objects.create_user(
                 username=username, email=email, password=senha
             )
+
+            email_subject = f"Welcome, {user.get_short_name()}!"
+            email_template = "emails/welcome.html"
+            send_email(user, email_subject, email_template)
+
             django_login(request, user)
             messages.success(request, "Usuário criado com sucesso")
             return redirect("cadastro")
-        except Exception:
+        except Exception as e:
+            print(e)
             messages.error(request, "erro ao criar a conta")
             return redirect("cadastro")
     return render(request, "cadastro.html")
@@ -74,29 +77,6 @@ def login(request):
     return redirect("cadastro")
 
 
-port = 587
-smtp_server = "smtp.gmail.com"
-sender_email = sender_email
-password_email = password_email
-receive_email = receive_email
-message = """\
-Bem vindo ao nossa site.
-
-Essa é uma mensagem do criador do site, José. 
-"""
-context = ssl.create_default_context()
-
-with smtplib.SMTP(smtp_server, port) as server:
-    server.ehlo()
-    server.starttls(context=context)
-    server.ehlo()
-    server.login(sender_email, password_email)
-    server.sendmail(sender_email, receive_email, message)
-    print("Email enviado com sucesso")
-
 def sair(request):
     logout(request)
     return redirect("cadastro")
-
-
-
