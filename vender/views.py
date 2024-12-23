@@ -4,6 +4,8 @@ from django.shortcuts import get_object_or_404
 from django.conf import settings
 import stripe
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+from django.http import *
 
 
 def create_checkout_session(request, id):
@@ -45,3 +47,21 @@ def success(request):
 
 def cancel(request):
     return render(request, "cancel.html")
+
+@csrf_exempt
+def stripe_webnook(request):
+    payload = request.body
+    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    event = None
+    endpoint_secret = settings.STRIPE_WEBNOOK_SECRET
+
+    try:
+        event = stripe.Webhook.construct_event(
+        payload, sig_header, endpoint_secret)
+    except ValueError as e:
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError as e:
+        return HttpResponse(status=400)
+    print(payload)
+
+    return HttpResponse(status=200)

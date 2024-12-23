@@ -1,4 +1,92 @@
-.lista1{
-    font-size: 100px;
-    background-color: red;
+body {
+    margin: 0; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column; 
+    overflow: hidden; 
 }
+
+
+
+
+.titulo {
+    position: fixed; 
+    top: 0;
+    left: 50%; 
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 20px; 
+    font-size: 24px;
+    text-align: center;
+    animation: slideDown 1.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0; 
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1; 
+    }
+}
+
+.lista1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 10px;
+    border: 1px solid black;
+    padding: 20px; 
+    width: 300px; 
+    border-radius: 10px;
+    background-color: #c6d199;
+    animation: slideDown 1.5s ease-out;
+    
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(-70%, 50%); 
+        opacity: 0; 
+    }
+    to {
+        transform: translate(-50%, 0%);
+        opacity: 1; 
+    }
+}
+
+.lista1 input {
+    width: 100%; 
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    font-size: 16px;
+}
+
+.lista1 input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#id1 {
+    color: rgb(2, 2, 2);
+    font-weight: bold;
+}
+
+.cadastro{
+    color: rgb(17, 17, 16);
+    width: 100px;
+    padding: 5px;
+    border-radius: 30px;
+    border: 1px solid green;
+}
+
+.cadastro:hover{
+    color: rgb(0, 255, 34);
+    transition: 1s;
+}
+

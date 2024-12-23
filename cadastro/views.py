@@ -2,6 +2,8 @@ from django.shortcuts import redirect, render
 from .models import Person
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as django_login, logout
+import smtplib, ssl
+from .constants import sender_email, password_email, receive_email
 
 
 def cadastro(request):
@@ -10,7 +12,9 @@ def cadastro(request):
     if request.method == "POST":
         username = request.POST.get("username")
         email = request.POST.get("email")
+        password_email = request.POST.get("password_email")
         senha = request.POST.get("password")
+
 
         if not username or not email or not senha:
             messages.error(request, "por favor, preencha todos os campos")
@@ -70,6 +74,29 @@ def login(request):
     return redirect("cadastro")
 
 
+port = 587
+smtp_server = "smtp.gmail.com"
+sender_email = sender_email
+password_email = password_email
+receive_email = receive_email
+message = """\
+Bem vindo ao nossa site.
+
+Essa é uma mensagem do criador do site, José. 
+"""
+context = ssl.create_default_context()
+
+with smtplib.SMTP(smtp_server, port) as server:
+    server.ehlo()
+    server.starttls(context=context)
+    server.ehlo()
+    server.login(sender_email, password_email)
+    server.sendmail(sender_email, receive_email, message)
+    print("Email enviado com sucesso")
+
 def sair(request):
     logout(request)
     return redirect("cadastro")
+
+
+

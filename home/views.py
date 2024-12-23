@@ -26,3 +26,6 @@ def salvar_imagem(request: HttpRequest):
     return redirect("perfil")
 
 
+    
+
+
