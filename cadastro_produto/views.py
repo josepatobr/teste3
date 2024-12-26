@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from vender.models import Produto
 from django.contrib import messages
+from cadastro.email import send_email
+from cadastro.models import Person
 
 
 def cadastro_produto(request):
@@ -15,9 +17,14 @@ def cadastro_produto(request):
             return render(request, "cadastro_produto.html")
 
         try:
+            user = Person.objects.all()
             produto = Produto.objects.create(
                 nome=nome, valor=valor, descricao=descricao, imagem=imagem
             )
+            email_subject = f"Você esta vendendo esse produto, {produto.nome()}!"
+            email_template = "email/produto.html"
+            send_email(produto, email_subject, email_template, valor, user)
+
             messages.success(request, "Produto adicionado com sucesso!")
             return redirect("cadastro_produto")
 

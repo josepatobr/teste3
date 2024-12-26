@@ -41,7 +41,7 @@ def cadastro(request):
                 username=username, email=email, password=senha
             )
 
-            email_subject = f"Welcome, {user.get_short_name()}!"
+            email_subject = f"Seja bem vindo, {user.get_short_name()}!"
             email_template = "emails/welcome.html"
             send_email(user, email_subject, email_template)
 
