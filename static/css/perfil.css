@@ -2,17 +2,26 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items:center;
   margin-top: 40px;
+  border: 1px solid black;
+  padding: 20px;
+  padding-top: 10px;
+  margin: 25px;
+  width: 400px;
+  background: gray;
+
 }
 
 .profile {
-  margin: 20px auto;
-  width: 150px;
-  height: 150px;
+  margin: 25px auto;
+  width: 175px;
+  height: 175px;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid #ccc;
+
+
 }
 
 .profile img {
@@ -33,11 +42,18 @@
   border: 1px solid;
   border-radius: 20px;
   transition: 0.2s;
+  padding-right: 15px;
+  padding-top: 10px;
+  width: 150px;
+  
 }
 
 .upload-btn {
   background-color: transparent;
-  color: rgb(0, 0, 0);
+  color: rgb(46, 44, 44);
+  right: 100px;
+  bottom: -10px;
+  position: relative;
 }
 
 .upload-btn:hover {
@@ -46,7 +62,10 @@
 
 .delete-btn {
   background-color: transparent;
-  color: black;
+  color: rgb(46, 44, 44);
+  position: relative;
+  right: 100px;
+  bottom: -13px;
 }
 
 .delete-btn:hover {
@@ -60,7 +79,10 @@
   padding: 03px 10px;
   border-radius: 50px;
   transition: 0.2s;
-  text-decoration: none
+  text-decoration: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px; 
 }
 
 .sair:hover {
@@ -72,16 +94,27 @@
 .me_levar{
   color: black;
   padding: 10px;
-  font-size: 17px;
+  font-size: 10px;
   text-decoration: none;
   border: 1px solid;
   border-radius: 30px;
   transition: 0.5s;
   align-self:center;
+  left: 125px;
+  position:relative;
+  
 }
 
 .me_levar:hover{
   color: rgb(0, 26, 255);
   background-color: transparent;
 
+}
+
+
+.nome{
+  color: blue;
+  border-bottom: 1px solid black;
+  position: relative;
+  right: 90px;
 }
