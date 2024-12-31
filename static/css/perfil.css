@@ -1,16 +1,18 @@
 .main {
+  position: relative;
+  display: flex;
+  margin-top: 40px;
+}
+
+.profile_card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items:center;
-  margin-top: 40px;
   border: 1px solid black;
+  border-radius: 10px;
   padding: 20px;
   padding-top: 10px;
   margin: 25px;
   width: 400px;
-  background: gray;
-
 }
 
 .profile {
@@ -20,8 +22,6 @@
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid #ccc;
-
-
 }
 
 .profile img {
@@ -30,44 +30,37 @@
   object-fit: cover;
 }
 
-.buttons {
-  margin-block: 10px;
+.nome {
+  color: blue;
+  border-bottom: 1px solid black;
+  text-align: center;
+  width: 100%;
 }
 
-.buttons button {
-  margin: 5px;
-  padding: 10px 15px;
-  font-size: 16px;
-  cursor: pointer;
+.form_buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+.form button {
+  padding: 10px;
+  background-color: transparent;
   border: 1px solid;
   border-radius: 20px;
   transition: 0.2s;
-  padding-right: 15px;
-  padding-top: 10px;
-  width: 150px;
-  
 }
 
 .upload-btn {
-  background-color: transparent;
   color: rgb(46, 44, 44);
-  right: 100px;
-  bottom: -10px;
-  position: relative;
 }
-
 .upload-btn:hover {
   color: rgb(52, 216, 61);
 }
 
 .delete-btn {
-  background-color: transparent;
   color: rgb(46, 44, 44);
-  position: relative;
-  right: 100px;
-  bottom: -13px;
 }
-
 .delete-btn:hover {
   color: rgb(255, 0, 0);
 }
@@ -82,16 +75,15 @@
   text-decoration: none;
   position: fixed;
   bottom: 20px;
-  right: 20px; 
+  right: 20px;
 }
 
 .sair:hover {
   color: rgb(0, 4, 255);
   background-color: transparent;
-
 }
 
-.me_levar{
+.me_levar {
   color: black;
   padding: 10px;
   font-size: 10px;
@@ -99,22 +91,12 @@
   border: 1px solid;
   border-radius: 30px;
   transition: 0.5s;
-  align-self:center;
+  align-self: center;
   left: 125px;
-  position:relative;
-  
+  position: relative;
 }
 
-.me_levar:hover{
+.me_levar:hover {
   color: rgb(0, 26, 255);
   background-color: transparent;
-
-}
-
-
-.nome{
-  color: blue;
-  border-bottom: 1px solid black;
-  position: relative;
-  right: 90px;
 }

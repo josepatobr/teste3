@@ -9,42 +9,34 @@
 
 {% block body %}
   <main class="main">
-    <h1> seu perfil </h1>
-  
-    <div class="profile" id="profile">
-      {% if profile_image %}
-        <img src="{{ profile_image }}" alt="Imagem do perfil" id="profileImage" /> 
-      {% else %}
-        <img src="https://via.placeholder.com/150" alt="Imagem do perfil" id="profileImage" />
-      {% endif %}
+    <div class="profile_card">
+      <h1>Seu perfil</h1>
+      <div class="profile" id="profile">
+        {% if profile_image %}
+          <img src="{{ profile_image }}" alt="Imagem do perfil" id="profileImage" /> 
+        {% else %}
+          <img src="https://via.placeholder.com/150" alt="Imagem do perfil" id="profileImage" />
+        {% endif %}
+      </div>
+      <h2 class="nome">{{ user.get_short_name }}</h2>
+      <form class="form" method="POST" action="{% url 'salvar_imagem' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" id="imageInput" name="profile_image" style="display: none;" accept="image/*" />
+        <div class="form_buttons">
+          <button
+            type="button"
+            class="upload-btn"
+            onclick="document.getElementById('imageInput').click();"
+          >
+            Trocar Imagem
+          </button>
+          <button type="submit" class="upload-btn">Salvar Imagem</button>
+          <button type="button" class="delete-btn" onclick="deleteImage()">Excluir Imagem</button>
+        </div>
+      </form>
+      <a class="sair" href="{% url 'home' %}">Voltar</a>
+      <a class="me_levar" href="{% url 'cadastro_produto' %}">Adicionar produto</a>
     </div>
-
-    <h1 class="nome">{{ person.username }}</h1>
-
-  
-    <form class="buttons" method="POST" action="{% url 'salvar_imagem' %}" enctype="multipart/form-data">
-      {% csrf_token %}
-      <input type="file" id="imageInput" name="profile_image" style="display: none;" accept="image/*" />
-      <br>
-      <button
-        type="button"
-        class="upload-btn"
-        onclick="document.getElementById('imageInput').click();"
-      >
-        Trocar Imagem
-      </button>
-      <br>
-      <button type="submit" class="upload-btn">Salvar Imagem</button>
-      <br>
-      <button type="button" class="delete-btn" onclick="deleteImage()">Excluir Imagem</button>
-      <br>
-    </form>
-
-
-    <a class="sair" href="{% url 'home' %}">Voltar</a>
-    <br>
-
-    <a class="me_levar" href="{% url 'cadastro_produto' %}"> adicionar produto </a>
   </main>
 {% endblock body %}
 
