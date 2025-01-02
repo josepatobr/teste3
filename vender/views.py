@@ -69,7 +69,8 @@ def stripe_webhook(request):
 
     if event['type'] == 'checkout.session.completed':
         session = event['data']['object']
-            
+
+        print(event)    
         print('Aprovada')
 
     return HttpResponse(status=200)
