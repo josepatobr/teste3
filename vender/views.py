@@ -49,19 +49,28 @@ def cancel(request):
     return render(request, "cancel.html")
 
 @csrf_exempt
-def stripe_webnook(request):
+def stripe_webhook(request):
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
-    endpoint_secret = settings.STRIPE_WEBNOOK_SECRET
+    endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
 
     try:
         event = stripe.Webhook.construct_event(
-        payload, sig_header, endpoint_secret)
+        payload, sig_header, endpoint_secret
+        )
     except ValueError as e:
+        # Invalid payload
         return HttpResponse(status=400)
     except stripe.error.SignatureVerificationError as e:
+        # Invalid signature
         return HttpResponse(status=400)
     print(payload)
 
+    if event['type'] == 'checkout.session.completed':
+        session = event['data']['object']
+            
+        print('Aprovada')
+
     return HttpResponse(status=200)
+
