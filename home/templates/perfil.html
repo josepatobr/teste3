@@ -9,6 +9,11 @@
 
 {% block body %}
   <main class="main">
+
+    <form>
+      <h1 class="itens_comprado"> Itens comprado </h1>
+    </form>
+
     <div class="profile_card">
       <h1>Seu perfil</h1>
       <div class="profile" id="profile">
@@ -37,6 +42,12 @@
       <a class="sair" href="{% url 'home' %}">Voltar</a>
       <a class="me_levar" href="{% url 'cadastro_produto' %}">Adicionar produto</a>
     </div>
+
+    <form>
+      <h1 class="vendendo_itens"> Vendendo itens </h1>
+    </form>
+
+
   </main>
 {% endblock body %}
 

@@ -13,6 +13,8 @@
   padding-top: 10px;
   margin: 25px;
   width: 400px;
+  align-items: center;
+  flex-direction: column;
 }
 
 .profile {
@@ -31,10 +33,11 @@
 }
 
 .nome {
-  color: blue;
+  color: rgb(68, 68, 68);
   border-bottom: 1px solid black;
   text-align: center;
   width: 100%;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 .form_buttons {
@@ -52,11 +55,9 @@
 
 }
 
-.upload-btn {
-  color: rgb(46, 44, 44);
-}
-.upload-btn:hover {
-  color: rgb(52, 216, 61);
+
+.alterar{
+  color: pink;
 }
 
 .delete-btn {
@@ -101,3 +102,35 @@
   color: rgb(0, 26, 255);
   background-color: transparent;
 }
+
+
+.itens_comprado{
+  color: rgb(0, 0, 0);
+  position: relative;
+  border: 1px solid black;
+  background: transparent;
+  width: 400px;
+  border-radius: 10px;
+  padding-bottom: 450px;
+  display: flex;
+  margin: 25px;
+  padding-top: 10px;
+  align-items: center;
+  flex-direction: column ;
+
+}
+
+.vendendo_itens{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-bottom: 450px;
+    padding-top: 10px;
+    margin: 25px;
+    width: 400px;
+    position: relative;
+    align-items: center;
+    background: transparent;
+
+  }
